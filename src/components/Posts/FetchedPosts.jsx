@@ -1,26 +1,44 @@
 import React from 'react';
 import Post from "./Post";
+import Loader from '../Main/Loader/Loader';
+import { useSelector, useDispatch } from "react-redux";
+import { fetchPosts } from '../../redux/actions';
 
-const FetchedPost = ({posts}) => {
+const FetchedPost = () => {
+    const { fetchedPosts } = useSelector(state => state.posts);
+    const isLoader = useSelector(state => state.loaders.isLoader);
+    const dispatch = useDispatch();
+
+    const getFetchedPosts = () => {
+        dispatch(fetchPosts());
+    };
+
     return (
         <div>
             {
-                posts.length ?
+                fetchedPosts.length ?
                     <div className="card">
                         <div className="card-body">
                             {
-                                posts.map(post => (
+                                fetchedPosts.map(post => (
                                     <Post
-                                        key={post}
+                                        key={post.id}
                                         post={post}
                                     />
                                 ))
                             }
                         </div>
                     </div>
-                    : <button className={'btn btn-primary'}>
+                    : <button
+                        className={'btn btn-primary'}
+                        onClick={getFetchedPosts}
+                    >
                         Загрузить
                     </button>
+            }
+            <p>isLoader{ isLoader ? 'TRUE' : 'FALSE' }</p>
+            {
+                isLoader ? <Loader /> : null
             }
         </div>
     )

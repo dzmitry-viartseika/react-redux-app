@@ -1,10 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './assets/scss/style.scss';
 import PostsForm from './components/Posts/PostsForm';
 import Posts from "./components/Posts/Posts";
 import FetchedPosts from "./components/Posts/FetchedPosts";
-// 22 minutes
-
 
 function App() {
 
@@ -18,11 +16,11 @@ function App() {
         <div className="row">
             <div className="col">
                 <h2>Синхронные посты</h2>
-                <Posts posts={[1,2,3,4]}/>
+                <Posts/>
             </div>
             <div className="col">
                 <h2>Асинхронные посты</h2>
-                <FetchedPosts posts={[1,2]}/>
+                <FetchedPosts/>
             </div>
         </div>
     </div>

@@ -1,13 +1,17 @@
 import React from 'react';
 import Post from "./Post";
+import { useSelector } from "react-redux";
 
-const Posts = ({posts}) => {
+// соединяем со стором
+
+const Posts = () => {;
+    const { posts } = useSelector(state => state.posts);
     return (
         <div>
             { posts.length ?
                 posts.map(post => (
                     <Post
-                        key={post}
+                        key={post.id}
                         post={post}
                     />
                 ))
