@@ -55,7 +55,7 @@ export function fetchPosts() {
         } catch (e) {
             dispatch(hideLoader())
             dispatch(showAlert('Что-то пошло не так'))
-            console.log(e);
+            console.error(e);
         }
     }
 }
