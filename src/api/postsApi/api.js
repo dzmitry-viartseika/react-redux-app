@@ -6,6 +6,6 @@ export default {
         const instCred = axios.create({
             baseURL: CURRENT_SERVER,
         });
-        return instCred.get('posts1?_limit=5');
+        return instCred.get('posts?_limit=5');
     },
 };

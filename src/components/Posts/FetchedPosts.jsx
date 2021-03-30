@@ -36,10 +36,7 @@ const FetchedPost = () => {
                         Загрузить
                     </button>
             }
-            <p>isLoader{ isLoader ? 'TRUE' : 'FALSE' }</p>
-            {
-                isLoader ? <Loader /> : null
-            }
+            { isLoader ? <Loader /> : null }
         </div>
     )
 };
